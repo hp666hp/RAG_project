@@ -29,7 +29,7 @@ app = FastAPI(
 class AskRequest(BaseModel):
     """问答请求数据模型"""
     question: str = Field(..., min_length=1, description="用户提问内容")
-    top_k: int |None = Field(default=None, ge=1, le=20, description="检索返回的最相关文档片段数量")
+    top_k: int  = Field(default=3, ge=1, le=20, description="检索返回的最相关文档片段数量")
     use_rerank: bool = True
     rerank_top_n: int = 3
 
